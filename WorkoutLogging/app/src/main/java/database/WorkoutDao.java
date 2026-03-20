@@ -18,6 +18,9 @@ public interface WorkoutDao {
     @Query("SELECT * FROM Workout")
     List<Workout> getAllWorkouts(); //hämtar alla pass
 
+    @Query("SELECT id FROM Workout ORDER BY id DESC LIMIT 1")
+    int getLastWorkoutId();
+
     @Delete
     void delete(Workout workout);
 }

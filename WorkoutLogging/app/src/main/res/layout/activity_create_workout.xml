@@ -1,10 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="activities.CreateWorkoutActivity">
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#2B282E">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:text="Skapa pass"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/inputWorkoutName"
+        android:hint="Döp ditt pass! (Valfritt)"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#AAAAAA"
+        android:backgroundTint="#AAAAAA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:text="Övningar"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/exerciseContainer"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddExercise"
+        android:text="+ Lägg till övningen"
+        android:layout_marginTop="16dp"
+        app:backgroundTint="#818181"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnStartWorkout"
+        android:text="Påbörja pass"
+        android:layout_marginTop="24dp"
+        app:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+
+</LinearLayout>

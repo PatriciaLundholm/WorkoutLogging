@@ -1,4 +1,4 @@
-package activities;
+package com.example.workoutlogging.activities;
 
 import android.os.Bundle;
 

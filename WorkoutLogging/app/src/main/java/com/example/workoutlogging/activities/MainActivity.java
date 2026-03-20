@@ -1,4 +1,4 @@
-package activities;
+package com.example.workoutlogging.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.workoutlogging.R;
+
 
 public class MainActivity extends AppCompatActivity {
 

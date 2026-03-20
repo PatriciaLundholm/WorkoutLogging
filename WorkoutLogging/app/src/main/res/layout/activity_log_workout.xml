@@ -5,6 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="activities.LogWorkoutActivity">
+    tools:context=".activities.LogWorkoutActivity">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,4 +25,9 @@ public class WorkoutRepository {
     public List<Workout> getAllWorkouts() {
         return db.workoutDao().getAllWorkouts();
     }
+
+    public int getLastWorkoutId() {
+        return db.workoutDao().getLastWorkoutId();
+    }
 }
+

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.workoutlogging"
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
@@ -12,19 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkoutLogging">
         <activity
-            android:name="activities.ProgressActivity"
+            android:name=".activities.ProgressActivity"
             android:exported="false" />
         <activity
-            android:name="activities.LogWorkoutActivity"
+            android:name=".activities.LogWorkoutActivity"
             android:exported="false" />
         <activity
-            android:name="activities.WorkoutListActivity"
+            android:name=".activities.WorkoutListActivity"
             android:exported="false" />
         <activity
-            android:name="activities.CreateWorkoutActivity"
+            android:name=".activities.CreateWorkoutActivity"
             android:exported="false" />
         <activity
-            android:name="activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
