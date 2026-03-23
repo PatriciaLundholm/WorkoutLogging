@@ -43,7 +43,7 @@ public class CreateWorkoutActivity extends AppCompatActivity {
         exerciseRepository = new ExerciseRepository(getApplicationContext());
         workoutExerciseRepository = new WorkoutExerciseRepository(getApplicationContext());
 
-
+        // 🔥 ADD EXERCISE
         btnAddExercise.setOnClickListener(v -> {
 
             String[] groups = {"Bröst", "Rygg", "Ben", "Axlar", "Armar"};
@@ -62,7 +62,7 @@ public class CreateWorkoutActivity extends AppCompatActivity {
             spinner.setAdapter(adapter);
 
             EditText input = new EditText(this);
-            input.setHint("Övningar");
+            input.setHint("Övning");
 
             layout.addView(spinner);
             layout.addView(input);
@@ -77,17 +77,18 @@ public class CreateWorkoutActivity extends AppCompatActivity {
 
                         if (name.isEmpty()) return;
 
+                        // 🔥 skapa exercise
                         Exercise exercise = new Exercise();
                         exercise.name = name;
                         exercise.muscleGroup = group;
 
-
+                        // 🔥 spara i databas
                         exerciseRepository.insertExercise(exercise);
 
-
+                        // 🔥 lägg till i lista
                         selectedExercises.add(exercise);
 
-
+                        // 🔥 visa i UI
                         TextView tv = new TextView(this);
                         tv.setText(name + " (" + group + ")");
                         tv.setTextColor(getResources().getColor(android.R.color.white));
@@ -101,6 +102,7 @@ public class CreateWorkoutActivity extends AppCompatActivity {
                     .show();
         });
 
+        // 🔥 START WORKOUT
         btnStart.setOnClickListener(v -> {
 
             String name = inputName.getText().toString();
@@ -112,20 +114,17 @@ public class CreateWorkoutActivity extends AppCompatActivity {
             Workout workout = new Workout();
             workout.name = name;
 
-
+            // 🔥 spara workout
             workoutRepository.insertWorkout(workout);
-
 
             new Thread(() -> {
                 try {
-                    Thread.sleep(500); // liten delay
-
+                    Thread.sleep(500);
 
                     int workoutId = workoutRepository.getLastWorkoutId();
 
-
+                    // 🔥 koppla exercises till workout
                     for (Exercise e : selectedExercises) {
-
                         WorkoutExercise we = new WorkoutExercise();
                         we.workoutId = workoutId;
                         we.exerciseId = e.id;
@@ -133,14 +132,18 @@ public class CreateWorkoutActivity extends AppCompatActivity {
                         workoutExerciseRepository.insert(we);
                     }
 
+                    // 🔥 gå till nästa activity
+                    runOnUiThread(() -> {
+                        Intent intent = new Intent(this, LogWorkoutActivity.class);
+                        intent.putExtra("WORKOUT_ID", workoutId);
+                        startActivity(intent);
+                    });
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }).start();
 
-
-            Intent intent = new Intent(this, LogWorkoutActivity.class);
-            startActivity(intent);
         });
     }
 }

@@ -4,7 +4,10 @@ import android.content.Context;
 
 import androidx.room.Room;
 
+import java.util.List;
+
 import database.AppDatabase;
+import models.Exercise;
 import models.WorkoutExercise;
 
 public class WorkoutExerciseRepository {
@@ -23,5 +26,9 @@ public class WorkoutExerciseRepository {
         new Thread(() -> {
             db.workoutExerciseDao().insert(we);
         }).start();
+    }
+
+    public List<Exercise> getExercisesForWorkout(int workoutId) {
+        return db.workoutExerciseDao().getExercisesForWorkout(workoutId);
     }
 }
