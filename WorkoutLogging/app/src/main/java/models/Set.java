@@ -8,8 +8,8 @@ public class Set {
     @PrimaryKey(autoGenerate = true)
 
     public int id;
-    public int workoutExerciseId;
-    public int weight;
+    public int exerciseId;
+    public float weight;
     public int reps;
     public int setNumber;
 }
