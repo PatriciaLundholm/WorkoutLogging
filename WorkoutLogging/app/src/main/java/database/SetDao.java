@@ -14,6 +14,9 @@ public interface SetDao {
     @Insert
     void insert(Set set);
 
+    @Query("SELECT * FROM `Set` WHERE exerciseId = :exerciseId")
+    List<Set> getSetsForExercise(int exerciseId);
+
     @Query("SELECT * FROM `Set` WHERE workoutExerciseId = :id ORDER BY setNumber ASC")
     List<Set> getSetsForExercise(int id);
 

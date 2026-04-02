@@ -14,7 +14,7 @@ public class SetRepository {
                 context,
                 AppDatabase.class,
                 "workout-database"
-        ).build();
+        ).fallbackToDestructiveMigration().build();
     }
 
     public void insertSet(Set set) {
