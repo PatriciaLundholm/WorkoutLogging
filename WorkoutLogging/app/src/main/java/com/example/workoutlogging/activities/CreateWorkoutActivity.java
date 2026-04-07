@@ -101,7 +101,7 @@ public class CreateWorkoutActivity extends AppCompatActivity {
                     .show();
         });
 
-        // 🔥 START WORKOUT
+
         btnStart.setOnClickListener(v -> {
 
             String name = inputName.getText().toString();
